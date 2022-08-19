@@ -4,10 +4,11 @@ const totalCasePriceField = document.getElementById('total-case-price');
 const subtotalElement = document.getElementById('sub-total');
 const taxElement = document.getElementById('tax');
 const grandTotalElement = document.getElementById('grand-total');
+const phoneAmountField = document.getElementById('phone-amount-field');
+const caseAmountField = document.getElementById('case-amount-field');
 
 // update phone amount and price function
 function updatePhone(isIncrement) {
-    const phoneAmountField = document.getElementById('phone-amount-field');
     const phoneAmountString = phoneAmountField.value;
     let phoneAmount = parseInt(phoneAmountString);
     isIncrement ? phoneAmount++ : phoneAmount--;
@@ -16,13 +17,28 @@ function updatePhone(isIncrement) {
     totalPhonePriceField.innerText = totalPhonePrice;
 }
 
-// update case amounta and price function
+// change phone amount and price function
+function changePhone() {
+    const phoneAmountString = phoneAmountField.value;
+    let phoneAmount = parseInt(phoneAmountString);
+    const totalPhonePrice = phoneAmount * 1219;
+    totalPhonePriceField.innerText = totalPhonePrice;
+}
+
+// update case amount and price function
 function updateCase(isIncrement) {
-    const caseAmountField = document.getElementById('case-amount-field');
     const caseAmountString = caseAmountField.value;
     let caseAmount = parseInt(caseAmountString);
     isIncrement ? caseAmount++ : caseAmount--;
     caseAmountField.value = caseAmount;
+    totalCasePrice = caseAmount * 59;
+    totalCasePriceField.innerText = totalCasePrice;
+}
+
+// change case amount and price function
+function changeCase() {
+    const caseAmountString = caseAmountField.value;
+    let caseAmount = parseInt(caseAmountString);
     totalCasePrice = caseAmount * 59;
     totalCasePriceField.innerText = totalCasePrice;
 }
